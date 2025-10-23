@@ -1,5 +1,7 @@
 @import url(./reset.css);
 @import url(./components/Header/Header.css);
+@import url(./components/Main/Main.css);
+@import url(./components/Coins/Coin.css);
 
 #root {
   font-family: "Roboto", Arial, sans-serif;
@@ -17,16 +19,4 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(28, 202, 214, 0.13);
-}
-
-.main {
-  border-radius: 3%;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 400px;
-  height: 200px;
 }
