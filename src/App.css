@@ -1,10 +1,11 @@
 @import url(./reset.css);
 @import url(./components/Header/Header.css);
 @import url(./components/Main/Main.css);
-@import url(./components/Coins/Coin.css);
+@import url(./components/Button/Button.css);
+@import url(./components/Coins/Coins.css);
 
 #root {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,41 +20,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  background-image: url('/public/background.png');
+  background-image: url("/public/background.png");
   background-repeat: no-repeat;
   background-size: cover; /* cobre toda a tela */
   background-position: center center;
   background-attachment: fixed; /* opcional: dá aquele efeito de "parallax" */
-}
-
-/* BOTAO CONVERTER --------------------------*/
-
-.convert-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.convert-button {
-  background: linear-gradient(135deg, #42a5f5, #61dafb);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  padding: 12px 32px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(66, 165, 245, 0.4);
-  transition: all 0.25s ease;
-}
-
-.convert-button:hover {
-  background: linear-gradient(135deg, #1e88e5, #42a5f5);
-  box-shadow: 0 6px 14px rgba(66, 165, 245, 0.5);
-  transform: translateY(-2px);
-}
-
-.convert-button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(66, 165, 245, 0.3);
 }

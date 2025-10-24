@@ -1,0 +1,32 @@
+@import url(../Coin/Coin.css);
+
+.Coins {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-wrapper {
+  width: 200px; /* altura original */
+  height: 80px; /* largura original */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 780px) {
+  .Coins {
+    flex-direction: column;
+  }
+
+  #partition {
+    width: 80px;
+    height: 200px;
+    transform: rotate(90deg);
+  }
+
+  .coins {
+    flex-direction: row;
+    align-items: center;
+  }
+}
