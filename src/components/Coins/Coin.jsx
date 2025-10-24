@@ -1,8 +1,8 @@
-export default function Coin({ CoinID, children }) {
+export default function Coin({ CoinID, Value, children }) {
   return (
     <>
       <div id={CoinID} className="coins">
-        <p>valor1</p>
+        <p>{Value}</p>
         <input
           class="valor_input"
           type="number"

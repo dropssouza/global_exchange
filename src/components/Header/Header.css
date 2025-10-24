@@ -4,4 +4,15 @@ header {
   align-items: center;
   display: flex;
   flex-direction: column;
+  color: aliceblue;
+}
+
+header h1 {
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+header p {
+  font-size: x-large;
+  font-weight: 300;
 }
