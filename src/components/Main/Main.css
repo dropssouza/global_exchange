@@ -7,11 +7,18 @@
   align-items: center;
   justify-content: space-evenly;
   width: 70vw;
-  height: 300px;
+
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .main:hover {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
+}
+
+@media (max-width: 530px) {
+  .main {
+    top: 15px;
+    position: relative;
+  }
 }

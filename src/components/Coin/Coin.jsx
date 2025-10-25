@@ -8,9 +8,12 @@ export default function Coin({ CoinID, Value, children }) {
           type="number"
           name="valor1"
           id="valor1"
-          placeholder="Exemplo: 115.80"
+          placeholder={
+            CoinID === "coin1" ? "Enter the value here" : "Your result here"
+          }
+          disabled={CoinID === "coin2"}
         />
-        <select id={CoinID} class="selects">
+        <select id={CoinID} className="selects">
           <option value="USD">Dólar (USD)</option>
           <option value="EUR">Euro (EUR)</option>
           <option value="BRL">Real (BRL)</option>

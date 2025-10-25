@@ -1,7 +1,7 @@
 export default function Button() {
   return (
     <div className="convert-button-container">
-      <button className="convert-button">Converter</button>
+      <button className="convert-button">Convert</button>
     </div>
   );
 }

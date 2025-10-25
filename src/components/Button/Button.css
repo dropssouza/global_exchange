@@ -1,6 +1,7 @@
 .convert-button-container {
   display: flex;
   justify-content: center;
+  padding: 15px;
 }
 
 .convert-button {
