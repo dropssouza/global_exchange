@@ -1,9 +1,9 @@
 export default function Coin({
   CoinID,
-  Value,
-  value,
+  fromOrTo,
+  coinValue,
   onValueChange,
-  currency,
+  currencySelected,
   onCurrencyChange,
   disabled,
   children,
@@ -11,12 +11,14 @@ export default function Coin({
   return (
     <>
       <div id={CoinID} className="coins">
-        <p>{Value}</p>
+        <p>{fromOrTo}</p>
         <input
           className="valor_input"
           type="number"
-          value={value}
-          onChange={(e) => onValueChange(e.target.value)}
+          value={coinValue}
+          onChange={
+            onValueChange ? (e) => onValueChange(e.target.value) : undefined
+          }
           placeholder={
             CoinID === "coin1" ? "Enter the value here" : "Your result here"
           }
@@ -24,7 +26,7 @@ export default function Coin({
         />
         <select
           className="selects"
-          value={currency}
+          value={currencySelected}
           onChange={(e) => onCurrencyChange(e.target.value)}
         >
           <option value="USD">Dólar (USD)</option>
