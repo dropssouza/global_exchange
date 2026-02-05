@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import Main from "./components/Main/Main.jsx";
@@ -18,17 +18,19 @@ function App() {
     setError("");
 
     if (!currency1) {
-      setError("Selecione a moeda desejada para continuar");
+      setError("Select your desired currency to continue");
       return;
     }
 
     if (currency1 === currency2) {
-      setError("A moeda de origem não pode ser igual à moeda de destino.");
+      setError(
+        "The source currency cannot be the same as the destination currency",
+      );
       return;
     }
 
     if (!value1 || value1 <= 0) {
-      setError("Informe um valor válido para conversão.");
+      setError("Please provide a valid value for conversion");
       return;
     }
 
@@ -44,8 +46,8 @@ function App() {
 
       const result = (value1 * bid).toFixed(2);
       setValue2(result);
-    } catch (err) {
-      setError("Erro ao buscar cotação. Tente novamente.");
+    } catch (error) {
+      setError("Error retrieving quote. Please try again");
     } finally {
       setLoading(false);
     }
