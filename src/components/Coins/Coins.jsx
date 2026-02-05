@@ -4,12 +4,12 @@ import divisor1 from "./images/img_convert.png";
 import divisor2 from "./images/img_convert2.png";
 
 export default function Coins({
-  currency1,
-  currency2,
-  value1,
-  value2,
-  setCurrency1,
-  setCurrency2,
+  currencyOrigin,
+  currencyDestination,
+  originValue,
+  destinationValue,
+  setCurrencyOrigin,
+  setCurrencyDestination,
   setValue1,
 }) {
   function Partition({ Id }) {
@@ -21,22 +21,21 @@ export default function Coins({
   return (
     <div className="Coins">
       <Coin
-        CoinID={"coin1"}
-        Value={"FROM"}
-        value={value1}
+        CoinID="coin1"
+        fromOrTo="FROM"
+        coinValue={originValue}
         onValueChange={setValue1}
-        currency={currency1}
-        onCurrencyChange={setCurrency1}
+        currencySelected={currencyOrigin}
+        onCurrencyChange={setCurrencyOrigin}
       ></Coin>
       <Partition Id="partition"></Partition>
       <Coin
-        CoinID={"coin2"}
-        Value={"TO"}
-        value={value2}
-        onValueChange={() => {}}
-        currency={currency2}
-        onCurrencyChange={setCurrency2}
-        disabled={true}
+        CoinID="coin2"
+        fromOrTo="TO"
+        coinValue={destinationValue}
+        currencySelected={currencyDestination}
+        onCurrencyChange={setCurrencyDestination}
+        disabled
       ></Coin>
     </div>
   );

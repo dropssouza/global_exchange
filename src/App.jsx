@@ -1,9 +1,10 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import Main from "./components/Main/Main.jsx";
 import Coins from "./components/Coins/Coins.jsx";
 import Button from "./components/Button/Button.jsx";
+import Ticker from "./components/Ticker/Ticker.jsx";
 
 function App() {
   const [currency1, setCurrency1] = useState("USD");
@@ -11,46 +12,64 @@ function App() {
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const API_URL = "https://currency-conversion-srm9.onrender.com";
+  const [error, setError] = useState("");
 
   async function calculate() {
-    if (!value1) {
-      alert("Type your value to convert!");
+    setError("");
+
+    if (!currency1) {
+      setError("Select your desired currency to continue");
+      return;
+    }
+
+    if (currency1 === currency2) {
+      setError(
+        "The source currency cannot be the same as the destination currency",
+      );
+      return;
+    }
+
+    if (!value1 || value1 <= 0) {
+      setError("Please provide a valid value for conversion");
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch(
-        `${API_URL}/converter?moeda_origem=${currency1}&moeda_destino=${currency2}&valor=${value1}`
-      );
+      const URL = `https://economia.awesomeapi.com.br/last/${currency1}-${currency2}`;
+      const response = await fetch(URL);
       const data = await response.json();
-      setValue2(data.valor_convertido);
-    } catch (error) {
-      console.error("Error during the conversion", error);
-      alert("Error connecting to the server");
-    }
 
-    setLoading(false);
+      const key = `${currency1}${currency2}`;
+      const bid = Number(data[key].bid);
+
+      const result = (value1 * bid).toFixed(2);
+      setValue2(result);
+    } catch (error) {
+      setError("Error retrieving quote. Please try again");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <>
+      <Ticker />
       <Header />
       <Main ClassName="main">
         <Coins
-          currency1={currency1}
-          setCurrency1={setCurrency1}
-          currency2={currency2}
-          setCurrency2={setCurrency2}
-          value1={value1}
+          currencyOrigin={currency1}
+          setCurrencyOrigin={setCurrency1}
+          currencyDestination={currency2}
+          setCurrencyDestination={setCurrency2}
+          originValue={value1}
           setValue1={setValue1}
-          value2={value2}
+          destinationValue={value2}
         />
 
         <Button onClick={calculate} loading={loading} />
+        {error && <p className="errorMessage">{error}</p>}
       </Main>
     </>
   );

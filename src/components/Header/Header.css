@@ -1,6 +1,6 @@
 header {
   position: absolute;
-  top: 3vh;
+  top: 9vh;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -24,5 +24,11 @@ header p {
 
   header p {
     font-size: large;
+  }
+}
+
+@media (max-width: 530px) {
+  header {
+    top: 5vh;
   }
 }

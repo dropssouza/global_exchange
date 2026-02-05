@@ -1,0 +1,45 @@
+.ticker-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1000;
+  padding: 10px 0;
+  background-color: #0b132077;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll-left 25s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-container:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.pair {
+  font-weight: 600;
+}
+
+.price {
+  color: #3cff7f;
+}
