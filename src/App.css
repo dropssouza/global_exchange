@@ -5,7 +5,7 @@
 @import url(./components/Coins/Coins.css);
 
 #root {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,6 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-
   background-color: #d7dee4;
 }
 
